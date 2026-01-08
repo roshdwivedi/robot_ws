@@ -39,7 +39,7 @@ def generate_launch_description():
         arguments=['-topic', 'robot_description', '-name', 'my_robot'],
     )
 
-    # 4. Bridge - Try bridging pose instead
+    # 4. Bridge between ROS 2 and Gazebo
     bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
@@ -59,7 +59,6 @@ def generate_launch_description():
     )
 
     # 5. Create TF from odometry message
-    # This is a built-in ROS2 node that does what we need!
     odom_to_tf = Node(
         package='robot_localization',
         executable='navsat_transform_node',
@@ -87,11 +86,11 @@ def generate_launch_description():
         node_robot_state_publisher,
         gazebo,
         TimerAction(
-            period=3.0,  # Wait 3 seconds for Gazebo to start
+            period=3.0,  
             actions=[spawn_entity]
         ),
         bridge,
-        #odom_to_tf,  # Comment out if you don't have robot_localization
+        #odom_to_tf # Uncomment if using robot_localization for TF,
         slam,
         rviz
     ])
