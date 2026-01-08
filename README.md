@@ -1,5 +1,5 @@
 # My Bot Description
-This project provides a ROS 2 package, `my_bot_description`, for simulating a differential drive robot in Gazebo and visualizing it in RViz. It supports ROS 2 Foxy, Galactic, and Humble distributions.
+This project provides a ROS 2 package, `my_bot_description`, for simulating a differential drive robot in Gazebo and visualizing it in RViz.
 
 ---
 
@@ -46,8 +46,3 @@ ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.5}, angular: {z:
 ```
 
 ---
-
-## Maintainer
-
-- **Name**: Your Name  
-- **Email**: your_email@example.com
